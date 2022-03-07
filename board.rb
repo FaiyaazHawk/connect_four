@@ -15,11 +15,11 @@ attr_accessor :grid
     end
 
     def find_row(column)
-        row = 5
-        until row == 0 || @grid[row-1][column] == 0
+        row = 5 #traversing from lowest row upwards.
+        until row == 0 || @grid[row][column] == 0
             row -= 1
         end
-        row
+        row 
     end
 end
 

@@ -35,7 +35,7 @@ describe Board do
 
         context 'it gives lowest available row when value in column' do
             it 'return 4 when input is 1 on updated grid' do
-                find_board.update_board(0,1,'T')
+                find_board.update_board(5,1,'T')
                 row = find_board.find_row(1)
                 expect(row).to eq(4)
             end

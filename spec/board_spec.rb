@@ -41,4 +41,32 @@ describe Board do
             end
         end
     end
+
+    describe 'check_vertical?' do
+        subject(:vert_board) {described_class.new}
+        context 'it returns bool if there is 4 of the same in a column' do
+            it ' returns true' do
+                vert_board.update_board(5,1,'T')
+                vert_board.update_board(4,1,'T')
+                vert_board.update_board(3,1,'T')
+                vert_board.update_board(2,1,'T')
+                result = vert_board.check_vertical?(1,'T')
+                expect(result).to eq(true)
+            end
+        end
+    end
+
+    describe 'check_horizontal?' do
+        subject(:horz_board) {described_class.new}
+        context 'it returns bool if there is 4 of the same in the row' do
+            it 'returns true' do
+                horz_board.update_board(1,1,'T')
+                horz_board.update_board(1,2,'T')
+                horz_board.update_board(1,3,'T')
+                horz_board.update_board(1,4,'T')
+                result = horz_board.check_horizontal?('T')
+                expect(result).to eq(true)
+            end
+        end
+    end
 end

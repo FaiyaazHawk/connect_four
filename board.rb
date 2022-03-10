@@ -21,5 +21,29 @@ attr_accessor :grid
         end
         row 
     end
+
+    def full_column?(column)
+        @grid[0][column] != 0
+    end
+
+    def check_vertical?(column,symbol)
+        count = 0
+        for i in 0..5 do
+            if @grid[i][column] == symbol
+                count += 1
+            end
+        end
+        count >= 4 ? true : false
+    end
+
+    def check_horizontal?(symbol)
+        for i in 0..5 do
+            if @grid[i].join =~ /#{symbol+symbol+symbol+symbol}/
+                return true
+            end
+        end
+        return false
+    end
+
 end
 

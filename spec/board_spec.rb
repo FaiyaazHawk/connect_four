@@ -69,4 +69,18 @@ describe Board do
             end
         end
     end
+
+    describe 'check_diagonal?' do
+        subject(:diag_board) {described_class.new}
+        context 'it returns bool if 4 in the same diagonal' do
+            it ' returns true' do
+                diag_board.update_board(0,0,'T')
+                diag_board.update_board(1,1,'T')
+                diag_board.update_board(2,2,'T')
+                diag_board.update_board(3,3,'T')
+                result = diag_board.check_diagonal?('T')
+                expect(result).to eq(true)
+            end
+        end
+    end
 end

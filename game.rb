@@ -13,12 +13,7 @@ class Game
         @turn = 0
     end
     
-    def play
-        introductions
-        get_player_names
-        player_turns
-        end_game
-    end
+    
 
     def introductions
         puts <<-INTRO

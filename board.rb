@@ -45,5 +45,31 @@ attr_accessor :grid
         return false
     end
 
+    def check_diagonal? (symbol)
+        return true if check_diagonal_up?(symbol) || check_diagonal_down?(symbol)
+    end
+
+    def check_diagonal_up?(symbol)
+        for i in 0..5 do #checking  each row
+            for j in 0..6 do #checking  each column
+                if @grid[i][j] == symbol && @grid[i+1][j+1] == symbol && @grid[i+2][j+2] == symbol && @grid[i+3][j+3] == symbol
+                    return true
+                end
+            end
+        end    
+        return false
+    end
+
+    def check_diagonal_down?(symbol)
+        for i in 0..5 do #checking  each row
+            for j in 0..6 do #checking  each column
+                if @grid[i][j] == symbol && @grid[i+1][j-1] == symbol && @grid[i+2][j-2] == symbol && @grid[i+3][j-3] == symbol
+                    return true
+                end
+            end
+        end    
+        return false
+    end
+
 end
 

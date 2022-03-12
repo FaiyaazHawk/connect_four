@@ -1,5 +1,8 @@
+require'../symbols.rb'
+
 #has the board class, display board. win condition functions
 class Board
+include Symbols
 attr_accessor :grid
 
     def initialize

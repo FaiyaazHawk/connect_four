@@ -5,12 +5,19 @@ require '../symbols.rb'
 
 class Game
     include Symbols
-
-    def initialize
+    def initialize()
         @board = Board.new
-        @player_1 = Player.new(white_circle)
-        @player_2 = Player.new(blue_circle)
+        @player_1 = Player.new(' ', white_circle)
+        @player_2 = Player.new(' ', blue_circle)
         @turn = 0
+    end
+
+    def check_input(input)
+        if input =~ /['0'|'1'|'2'|'3'|'4'|'5'|'6']/
+            return true
+        else
+            return false
+        end
     end
     
     

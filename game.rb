@@ -1,7 +1,7 @@
 #main class to have the game logic and flow
-require '../player.rb'
-require '../board.rb'
-require '../symbols.rb'
+require_relative 'player.rb'
+require_relative 'board.rb'
+require_relative 'symbols.rb'
 
 class Game
     attr_accessor :player_1, :player_2, :turn, :board
@@ -49,8 +49,19 @@ class Game
         @player_2.name = gets.chomp
     end
 
-    
+    def play
+        introductions
+        get_player_names
+        until @turn = 42 || winner?(player)
+
+        end
+        final_message
+    end
+
 
 
 
 end
+
+g = Game.new
+g.play

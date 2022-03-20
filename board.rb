@@ -1,4 +1,4 @@
-require'../symbols.rb'
+require_relative 'symbols.rb'
 
 #has the board class, display board. win condition functions
 class Board

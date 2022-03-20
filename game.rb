@@ -4,6 +4,7 @@ require '../board.rb'
 require '../symbols.rb'
 
 class Game
+    attr_accessor :player_1, :player_2, :turn, :board
     include Symbols
     def initialize()
         @board = Board.new
@@ -17,6 +18,14 @@ class Game
             return true
         else
             return false
+        end
+    end
+
+    def player_turn
+        if @turn % 2 == 0
+            return player_1
+        else
+            return player_2
         end
     end
     

@@ -23,7 +23,25 @@ describe Game do
         end
     end
 
-    
+    describe 'player_turn' do
+        context 'changes player currently playing based on turn count' do
+            subject(:turn_check){described_class.new}
+                it 'returns player 1' do
+                    result = turn_check.player_turn
+                    expect(result).to eq(turn_check.player_1)
+                end
+        end
+        context 'returns player 2 when 1 turn is done' do
+            subject(:turn_check){described_class.new}
+            before do
+                turn_check.instance_variable_set(:@turn,1)
+            end
+                it 'returns player 2' do
+                    result = turn_check.player_turn
+                    expect(result).to eq(turn_check.player_2)
+                end
+        end
+    end
 
     
 end

@@ -52,13 +52,29 @@ class Game
     def play
         introductions
         get_player_names
-        until @turn = 42 || winner?(player)
-
+        until @turn == 42
+            player = player_turn
+            @board.display_board
+            player_input(player)
+            if winner?(player)
+                breaktest
+            end    
+            @turn += 1
         end
         final_message
     end
 
+   
 
+    def final_message
+        if @turn == 42
+            puts 'Its a Tie!!!'
+        elsif winner?(@player_1)
+            puts 'Congrats #{@player_1.name}! You Win!'
+        elsif winner?(@player_2)
+            puts 'Congrats #{@player_2.name}! You Win!'
+        end
+    end
 
 
 end

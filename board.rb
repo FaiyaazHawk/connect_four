@@ -6,7 +6,7 @@ include Symbols
 attr_accessor :grid
 
     def initialize
-        @grid = Array.new(6) {Array.new(7){0}}
+        @grid = Array.new(6) {Array.new(7){0}}.freeze
     end
 
     def display_board

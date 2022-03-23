@@ -11,6 +11,7 @@ class Game
         @player_1 = Player.new(' ', white_circle)
         @player_2 = Player.new(' ', blue_circle)
         @turn = 0
+        @input = nil
     end
 
     def check_input(input)
@@ -57,22 +58,40 @@ class Game
             @board.display_board
             player_input(player)
             if winner?(player)
-                breaktest
+                break
             end    
             @turn += 1
         end
         final_message
     end
 
-   
+    def player_input(player)
+        puts "Please select between 0-6 #{player.name}"
+        input = ''
+        until check_input(input)
+            input = gets.chomp
+        end
+        input = input.to_i
+        @input = input
+        board.update_board(board.find_row(input), input, player.symbol)
+    end
+    
+    def winner?(player)
+        if board.check_vertical?(@input, player.symbol)
+            return true
+        elsif board.check_horizontal?(player.symbol)
+            return true
+        end
+    end
+
 
     def final_message
         if @turn == 42
             puts 'Its a Tie!!!'
         elsif winner?(@player_1)
-            puts 'Congrats #{@player_1.name}! You Win!'
+            puts "Congrats #{@player_1.name}! You Win!"
         elsif winner?(@player_2)
-            puts 'Congrats #{@player_2.name}! You Win!'
+            puts "Congrats #{@player_2.name}! You Win!"
         end
     end
 

@@ -1,11 +1,11 @@
 #module that has the symbols to be used for the board
 module Symbols
     def white_circle
-        "\u25cb"
+        1
     end
 
     def blue_circle
-        "\u25cf"
+        2
     end
 
 end

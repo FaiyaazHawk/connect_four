@@ -6,7 +6,7 @@ include Symbols
 attr_accessor :grid
 
     def initialize
-        @grid = Array.new(6) {Array.new(7){0}}.freeze
+        @grid = Array.new(6) {Array.new(7){0}}
     end
 
     def display_board
@@ -49,12 +49,14 @@ attr_accessor :grid
     end
 
     def check_diagonal? (symbol)
-        return true if check_diagonal_up?(symbol) || check_diagonal_down?(symbol)
+        if check_diagonal_up?(symbol)
+            return true
+        end
     end
 
     def check_diagonal_up?(symbol)
-        for i in 0..5 do #checking  each row
-            for j in 0..6 do #checking  each column
+        for i in 0..3 do #checking  each row
+            for j in 0..4 do #checking  each column
                 if @grid[i][j] == symbol && @grid[i+1][j+1] == symbol && @grid[i+2][j+2] == symbol && @grid[i+3][j+3] == symbol
                     return true
                 end
@@ -64,8 +66,8 @@ attr_accessor :grid
     end
 
     def check_diagonal_down?(symbol)
-        for i in 0..5 do #checking  each row
-            for j in 0..6 do #checking  each column
+        for i in 0..3 do #checking  each row
+            for j in 0..4 do #checking  each column
                 if @grid[i][j] == symbol && @grid[i+1][j-1] == symbol && @grid[i+2][j-2] == symbol && @grid[i+3][j-3] == symbol
                     return true
                 end

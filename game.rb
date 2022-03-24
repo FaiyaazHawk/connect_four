@@ -57,9 +57,9 @@ class Game
             player = player_turn
             @board.display_board
             player_input(player)
-            if winner?(player)
-                break
-            end    
+            #if winner?(player)
+            #    break
+            #end    
             @turn += 1
         end
         final_message
@@ -78,6 +78,8 @@ class Game
     def winner?(player)
         if board.check_horizontal?(player.symbol) || board.check_vertical?(player.symbol) || board.check_diagonal?(player.symbol)
             return true
+        else
+            return false
         end
     end
 

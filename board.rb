@@ -29,10 +29,12 @@ attr_accessor :grid
         @grid[0][column] != 0
     end
 
-    def check_vertical?(column,symbol)
+    def check_vertical?(symbol)
         for i in 0..2 do
-            if @grid[i][column] == symbol && @grid[i+1][column] == symbol && @grid[i+2][column] == symbol && @grid[i+3][column] == symbol
-                return true
+            for j in 0..6 do
+                if @grid[i][j] == symbol && @grid[i+1][j] == symbol && @grid[i+2][j] == symbol && @grid[i+3][j] == symbol
+                    return true
+                end
             end
         end
     end
@@ -68,6 +70,12 @@ attr_accessor :grid
             end
         end    
         return false
+    end
+
+    def check_diagonal?(symbol)
+        if check_diagonal_up?(symbol) || check_diagonal_down?(symbol)
+            return true
+        end
     end
 
 end

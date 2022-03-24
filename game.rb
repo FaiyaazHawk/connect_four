@@ -83,6 +83,8 @@ class Game
             return true
         elsif board.check_diagonal_up?(player.symbol)
             return true
+        elsif board.check_diagonal_down?(player.symbol)
+            return true
         end
     end
 

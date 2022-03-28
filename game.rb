@@ -67,11 +67,10 @@ class Game
 
     def player_input(player)
         puts "Please select between 0-6 #{player.name}"
-        input = ''
-        until check_input(input)
-            input = gets.chomp unless board.full_column?(input)
+        input = gets.chomp.to_i
+        until check_input(input) || !board.full_column?(input)
+            input = gets.chomp.to_i
         end
-        input = input.to_i
         board.update_board(board.find_row(input), input, player.symbol)
     end
     

@@ -1,11 +1,15 @@
 #module that has the symbols to be used for the board
 module Symbols
-    def white_circle
+    def one
         1
     end
 
-    def blue_circle
+    def two
         2
+    end
+
+    def empty_circle
+        0
     end
 
 end

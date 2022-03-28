@@ -8,8 +8,8 @@ class Game
     include Symbols
     def initialize()
         @board = Board.new
-        @player_1 = Player.new(' ', white_circle)
-        @player_2 = Player.new(' ', blue_circle)
+        @player_1 = Player.new(' ', one)
+        @player_2 = Player.new(' ', two)
         @turn = 0
         
     end

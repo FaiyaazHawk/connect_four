@@ -50,7 +50,7 @@ describe Board do
                 vert_board.update_board(4,1,'T')
                 vert_board.update_board(3,1,'T')
                 vert_board.update_board(2,1,'T')
-                result = vert_board.check_vertical?(1,'T')
+                result = vert_board.check_vertical?('T')
                 expect(result).to eq(true)
             end
         end

@@ -30,46 +30,42 @@ attr_accessor :grid
     end
 
     def check_vertical?(symbol)
-        for i in 0..2 do
-            for j in 0..6 do
-                if @grid[i][j] == symbol && @grid[i+1][j] == symbol && @grid[i+2][j] == symbol && @grid[i+3][j] == symbol
-                    return true
-                end
+        for row in 0..2 do
+            for column in 0..6 do
+                next if @grid[row][column] != symbol
+                return true if @grid[row][column] == symbol && @grid[row+1][column] == symbol && @grid[row+2][column] == symbol && @grid[row+3][column] == symbol
             end
         end
     end
 
     def check_horizontal?(symbol)
-        for i in 0..5 do
-            if @grid[i].join =~ /#{symbol+symbol+symbol+symbol}/
-                return true
+        for row in 0..5 do
+            for column in 0..3 do
+                next if @grid[row][column] != symbol
+                return true if @grid[row][column] == symbol && @grid[row][column+1] == symbol && @grid[row][column+2] == symbol && @grid[row][column+3] == symbol
             end
         end
-        return false
+            
     end
 
     
 
     def check_diagonal_up?(symbol)
-        for i in 0..3 do #checking  each row possible
-            for j in 0..4 do #checking  each column possible
-                if @grid[i][j] == symbol && @grid[i+1][j+1] == symbol && @grid[i+2][j+2] == symbol && @grid[i+3][j+3] == symbol
-                    return true
-                end
+        for row in 3..5 do 
+            for j in 0..3 do 
+               next if @grid[row][column] != symbol
+               return true if @grid[row][column] == symbol && @grid[row-1][column+1] == symbol && @grid[row-2][column+2] == symbol && @grid[row-3][column+3] == symbol
             end
         end    
-        return false
     end
 
     def check_diagonal_down?(symbol)
-        for i in 3..0 do #checking  each row possible
-            for j in 4..0 do #checking  each column possilbe
-                if @grid[i][j] == symbol && @grid[i+1][j-1] == symbol && @grid[i+2][j-2] == symbol && @grid[i+3][j-3] == symbol
-                    return true
-                end
+        for row in 0..2 do 
+            for column in 0..3 do
+                next if @grid[row][column] != symbol
+                return true if @grid[row][column] == symbol && @grid[row+1][column+1] == symbol && @grid[row+2][column+2] == symbol && @grid[row+3][column+3] == symbol
             end
-        end    
-        return false
+        end
     end
 
     def check_diagonal?(symbol)

@@ -84,6 +84,7 @@ class Game
 
 
     def final_message
+        board.display_board
         if @turn == 42
             puts 'Its a Tie!!!'
         elsif winner?(@player_1)

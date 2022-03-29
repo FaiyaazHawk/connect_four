@@ -75,7 +75,7 @@ class Game
     end
     
     def winner?(player)
-        if board.check_horizontal?(player.symbol) #|| board.check_vertical?(player.symbol) || board.check_diagonal?(player.symbol)
+        if board.check_horizontal?(player.symbol) || board.check_vertical?(player.symbol) || board.check_diagonal?(player.symbol)
             return true
         else
             return false

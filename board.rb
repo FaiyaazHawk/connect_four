@@ -36,6 +36,7 @@ attr_accessor :grid
                 return true if @grid[row][column] == symbol && @grid[row+1][column] == symbol && @grid[row+2][column] == symbol && @grid[row+3][column] == symbol
             end
         end
+        false
     end
 
     def check_horizontal?(symbol)
@@ -45,7 +46,7 @@ attr_accessor :grid
                 return true if @grid[row][column] == symbol && @grid[row][column+1] == symbol && @grid[row][column+2] == symbol && @grid[row][column+3] == symbol
             end
         end
-            
+        false    
     end
 
     
@@ -66,12 +67,14 @@ attr_accessor :grid
                 return true if @grid[row][column] == symbol && @grid[row+1][column+1] == symbol && @grid[row+2][column+2] == symbol && @grid[row+3][column+3] == symbol
             end
         end
+        false
     end
 
     def check_diagonal?(symbol)
         if check_diagonal_up?(symbol) || check_diagonal_down?(symbol)
             return true
         end
+        false
     end
 
 end

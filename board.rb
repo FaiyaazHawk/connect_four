@@ -53,7 +53,7 @@ attr_accessor :grid
 
     def check_diagonal_up?(symbol)
         for row in 3..5 do 
-            for j in 0..3 do 
+            for column in 0..3 do 
                next if @grid[row][column] != symbol
                return true if @grid[row][column] == symbol && @grid[row-1][column+1] == symbol && @grid[row-2][column+2] == symbol && @grid[row-3][column+3] == symbol
             end

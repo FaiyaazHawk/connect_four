@@ -57,7 +57,8 @@ attr_accessor :grid
                next if @grid[row][column] != symbol
                return true if @grid[row][column] == symbol && @grid[row-1][column+1] == symbol && @grid[row-2][column+2] == symbol && @grid[row-3][column+3] == symbol
             end
-        end    
+        end
+        false    
     end
 
     def check_diagonal_down?(symbol)

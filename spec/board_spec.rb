@@ -44,6 +44,7 @@ describe Board do
     end
   end
 
+<<<<<<< HEAD
   describe 'check_vertical?' do
     subject(:vert_board) { described_class.new }
     context 'it returns bool if there is 4 of the same in a column' do
@@ -55,6 +56,20 @@ describe Board do
         result = vert_board.check_vertical?(1, 'T')
         expect(result).to eq(true)
       end
+=======
+    describe 'check_vertical?' do
+        subject(:vert_board) {described_class.new}
+        context 'it returns bool if there is 4 of the same in a column' do
+            it ' returns true' do
+                vert_board.update_board(5,1,'T')
+                vert_board.update_board(4,1,'T')
+                vert_board.update_board(3,1,'T')
+                vert_board.update_board(2,1,'T')
+                result = vert_board.check_vertical?('T')
+                expect(result).to eq(true)
+            end
+        end
+>>>>>>> 744e85f3f79d1d02423f836024531eeea3b86c24
     end
   end
 

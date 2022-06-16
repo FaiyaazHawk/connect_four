@@ -1,11 +1,12 @@
-#player class to contain name and symbol for player
+# frozen_string_literal: true
+
+# player class to contain name and symbol for player
 
 class Player
+  attr_accessor :name, :symbol
 
-attr_accessor :name, :symbol
-
-    def initialize(name,symbol)
-        @name = name
-        @symbol = symbol
-    end
+  def initialize(name, symbol)
+    @name = name
+    @symbol = symbol
+  end
 end

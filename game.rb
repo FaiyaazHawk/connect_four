@@ -47,10 +47,7 @@ class Game
     INTRO
     gets.chomp
   end
-=======
-    INTRO
-    gets.chomp
-  end
+
 
   def get_player_names
     puts 'Player 1, What is your name?'
@@ -58,7 +55,7 @@ class Game
     puts 'Player 2, What is your name?'
     @player_2.name = gets.chomp
   end
-end
+
 
   def get_player_names
     puts 'Player 1, What is your name?'
@@ -106,8 +103,10 @@ end
       puts "Congrats #{@player_2.name}! You Win!"
     end
   end
+
 end
 
 g = Game.new
 g.play
+
 

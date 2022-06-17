@@ -10,14 +10,11 @@ class Board
   attr_accessor :grid
 
 
-  def initialize
-    @grid = Array.new(6) { Array.new(7) { empty_circle } }
-  end
-=======
+  
   def initialize
     @grid = Array.new(6) { Array.new(7) { 0 } }
   end
->>>>>>> d30099bf71b0b545fd1291116a4fc08d65d68e72
+
 
   def display_board
     pp @grid
@@ -58,7 +55,7 @@ class Board
           return true
         end
       end
-=======
+
     def check_vertical?(symbol)
         for row in 0..2 do
             for column in 0..6 do
@@ -116,7 +113,7 @@ class Board
         next if @grid[row][column] != symbol
         if @grid[row][column] == symbol && @grid[row + 1][column + 1] == symbol && @grid[row + 2][column + 2] == symbol && @grid[row + 3][column + 3] == symbol
           return true
-=======
+
     def check_diagonal_down?(symbol)
         for row in 0..2 do 
             for column in 0..3 do

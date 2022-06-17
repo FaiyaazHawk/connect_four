@@ -1,15 +1,23 @@
+
 # frozen_string_literal: true
 
-require_relative 'symbols'
+require '../symbols.rb'
+
 
 # has the board class, display board. win condition functions
 class Board
   include Symbols
   attr_accessor :grid
 
+
   def initialize
     @grid = Array.new(6) { Array.new(7) { empty_circle } }
   end
+=======
+  def initialize
+    @grid = Array.new(6) { Array.new(7) { 0 } }
+  end
+>>>>>>> d30099bf71b0b545fd1291116a4fc08d65d68e72
 
   def display_board
     pp @grid
@@ -28,6 +36,7 @@ class Board
   def full_column?(column)
     @grid[0][column] != 0
   end
+
 
   def check_vertical?(symbol)
     (0..2).each do |row|
@@ -49,9 +58,32 @@ class Board
           return true
         end
       end
+=======
+    def check_vertical?(symbol)
+        for row in 0..2 do
+            for column in 0..6 do
+                next if @grid[row][column] != symbol
+                return true if @grid[row][column] == symbol && @grid[row+1][column] == symbol && @grid[row+2][column] == symbol && @grid[row+3][column] == symbol
+            end
+        end
+        false
+    end
+    count >= 4
+  end
+
+    def check_horizontal?(symbol)
+        for row in 0..5 do
+            for column in 0..3 do
+                next if @grid[row][column] != symbol
+                return true if @grid[row][column] == symbol && @grid[row][column+1] == symbol && @grid[row][column+2] == symbol && @grid[row][column+3] == symbol
+            end
+        end
+        false    
+
     end
     false
   end
+
 
   def check_diagonal_up?(symbol)
     (3..5).each do |row|
@@ -61,9 +93,22 @@ class Board
           return true
         end
       end
+
+    
+
+    def check_diagonal_up?(symbol)
+        for row in 3..5 do 
+            for column in 0..3 do 
+               next if @grid[row][column] != symbol
+               return true if @grid[row][column] == symbol && @grid[row-1][column+1] == symbol && @grid[row-2][column+2] == symbol && @grid[row-3][column+3] == symbol
+            end
+        end
+        false    
+
     end
     false
   end
+
 
   def check_diagonal_down?(symbol)
     (0..2).each do |row|
@@ -71,14 +116,25 @@ class Board
         next if @grid[row][column] != symbol
         if @grid[row][column] == symbol && @grid[row + 1][column + 1] == symbol && @grid[row + 2][column + 2] == symbol && @grid[row + 3][column + 3] == symbol
           return true
+=======
+    def check_diagonal_down?(symbol)
+        for row in 0..2 do 
+            for column in 0..3 do
+                next if @grid[row][column] != symbol
+                return true if @grid[row][column] == symbol && @grid[row+1][column+1] == symbol && @grid[row+2][column+2] == symbol && @grid[row+3][column+3] == symbol
+            end
         end
       end
     end
     false
   end
 
-  def check_diagonal?(symbol)
-    return true if check_diagonal_up?(symbol) || check_diagonal_down?(symbol)
+    def check_diagonal?(symbol)
+        if check_diagonal_up?(symbol) || check_diagonal_down?(symbol)
+            return true
+        end
+        false
+    end
 
     false
   end

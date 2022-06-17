@@ -1,9 +1,12 @@
+
 # frozen_string_literal: true
 
 # main class to have the game logic and flow
-require_relative 'player'
-require_relative 'board'
-require_relative 'symbols'
+require '../player.rb'
+require '../board.rb'
+require '../symbols.rb'
+
+
 
 class Game
   attr_accessor :player_1, :player_2, :turn, :board
@@ -32,6 +35,7 @@ class Game
     end
   end
 
+
   def introductions
     puts <<-INTRO
         Hello!
@@ -39,9 +43,22 @@ class Game
         The object of the game is to take turns dropping tiles in a 7 by 6 board and to win
         by having 4 tiles of the same color align either diagonally or orthogonally.
         Press any key to continue:
+
     INTRO
     gets.chomp
   end
+=======
+    INTRO
+    gets.chomp
+  end
+
+  def get_player_names
+    puts 'Player 1, What is your name?'
+    @player_1.name = gets.chomp
+    puts 'Player 2, What is your name?'
+    @player_2.name = gets.chomp
+  end
+end
 
   def get_player_names
     puts 'Player 1, What is your name?'
@@ -93,3 +110,4 @@ end
 
 g = Game.new
 g.play
+

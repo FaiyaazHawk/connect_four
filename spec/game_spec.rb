@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+<<<<<<< HEAD
 require_relative '../game'
 
 describe Game do
@@ -10,6 +11,24 @@ describe Game do
         result = input_check.check_input('4')
         expect(result).to eq(true)
       end
+=======
+require_relative '../game.rb'
+
+describe Game do
+<<<<<<< HEAD
+  describe 'check_input' do
+    subject(:input_check) { described_class.new }
+  end
+end
+=======
+    describe 'check_input' do
+        context 'it makes sure input it between 0-6' do
+            it 'returns true with 4' do
+                input_check = Game.new
+                result = input_check.check_input('4')
+                expect(result).to eq(true)
+            end
+>>>>>>> d30099bf71b0b545fd1291116a4fc08d65d68e72
 
       it 'returns false with 9' do
         input_check = Game.new
@@ -33,6 +52,7 @@ describe Game do
         expect(result).to eq(turn_check.player_1)
       end
     end
+<<<<<<< HEAD
     context 'returns player 2 when 1 turn is done' do
       subject(:turn_check) { described_class.new }
       before do
@@ -45,3 +65,9 @@ describe Game do
     end
   end
 end
+=======
+
+    
+end
+>>>>>>> 744e85f3f79d1d02423f836024531eeea3b86c24
+>>>>>>> d30099bf71b0b545fd1291116a4fc08d65d68e72

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # frozen_string_literal: true
 
 <<<<<<< HEAD
@@ -71,3 +72,14 @@ end
 end
 >>>>>>> 744e85f3f79d1d02423f836024531eeea3b86c24
 >>>>>>> d30099bf71b0b545fd1291116a4fc08d65d68e72
+=======
+require_relative '../game.rb'
+
+describe Game do
+    describe 'check_input' do
+        subject(:input_check) {described_class.new}
+    end
+
+    
+end
+>>>>>>> parent of 4090b12 (rubocop pass)

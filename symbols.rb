@@ -1,16 +1,11 @@
-# frozen_string_literal: true
-
-# module that has the symbols to be used for the board
+#module that has the symbols to be used for the board
 module Symbols
-  def one
-    1
-  end
+    def white_circle
+        "\e[33m\u25cb\e[0m"
+    end
 
-  def two
-    2
-  end
+    def blue_circle
+        "\e[34m\u25cf\e[0m"
+    end
 
-  def empty_circle
-    0
-  end
 end
